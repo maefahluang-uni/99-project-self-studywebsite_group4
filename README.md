@@ -6,9 +6,12 @@ Project : Your Study Buddy
 
 List your group's member's below with ID and name.
 
-1. Nang Ying Lao Hsaing        6531503162   #122967319
-2. Nang Pyae Pyae Phyoe Aein   6531503161   #122954406
-3. Shwe Sin Tun                6531503182
-4. Sai San Mine                6531503177   #122962811
-5. Saw Thomas Maung Maung Kyaw 6531503181   #122962645
-6. Sai Sithu Phyo              6531503179   #122963117
+|Name | student ID | Github ID| 
+|----------------| |----------------||----------------|
+| 1. Nang Ying Lao Hsaing | 6531503162 |#122967319 |
+| 2. Nang Pyae Pyae Phyoe Aein | 6531503161 |#122954406 |
+| 3. Shwe Sin Tun | 6531503182 |
+|4. Sai San Mine | 6531503177 | #122962811 |
+|5. Saw Thomas Maung Maung Kyaw  | 6531503181 | #122962645 |
+| 6. Sai Sithu Phyo | 6531503179 | #122963117 |
+
