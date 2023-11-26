@@ -251,7 +251,65 @@
             background-color: #ffffff;
         }
 
+        .createnote-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
 
+        .createnote-title {
+            text-align: center;
+            color: #333;
+        }
+
+        .createnote-form {
+            margin-top: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-button {
+            background-color: #A0B9FA;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -279,7 +337,7 @@
     <div class="main" id="mainContent">
 
 
-        <div class="createnote">
+        <!-- <div class="createnote">
             <h2>Add a New Note</h2>
 
 
@@ -294,6 +352,24 @@
             </form>
             <br />
             <a th:href="@{/notes}">Back to Notes List</a>
+        </div> -->
+
+        <div class="createnote-container">
+            <h2 class="createnote-title">Add a New Note</h2>
+
+            <form th:action="@{/save-notes}" method="post" th:object="${note}" class="createnote-form">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" name="name" th:field="*{name}" required class="form-input" />
+
+                <label for="text" class="form-label">Note Text:</label>
+                <textarea id="text" name="text" th:field="*{text}" required class="form-textarea"></textarea>
+
+                <button type="submit" class="form-button">Save Note</button>
+            </form>
+
+            <br />
+
+            <a th:href="@{/notes}" class="back-link">Back to Notes List</a>
         </div>
     </div>
 

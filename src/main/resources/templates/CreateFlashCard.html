@@ -238,6 +238,55 @@
     button:hover {
       background-color: #A0B9FA;
     }
+
+    .flashcard-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #A0B9FA;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 
@@ -259,33 +308,35 @@
     <div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
   </div>
   <div class="main" id="mainContent">
-    <h2>Create Flash Card</h2>
+    <div class="flashcard-container">
+      <h2>Create Flash Card</h2>
 
-    <form action="/flashcards" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <br>
-      <label for="frontLabel">Front Label:</label>
-      <textarea id="frontLabel" name="frontLabel" rows="4" required></textarea>
-      <br>
-      <label for="backLabel">Back Label:</label>
-      <textarea id="backLabel" name="backLabel" rows="4" required></textarea>
-      <br>
-      <button type="submit">Save Flash Card</button>
-    </form>
+      <form action="/flashcards" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="frontLabel">Front Label:</label>
+        <textarea id="frontLabel" name="frontLabel" rows="4" required></textarea>
+
+        <label for="backLabel">Back Label:</label>
+        <textarea id="backLabel" name="backLabel" rows="4" required></textarea>
+
+        <button type="submit">Save Flash Card</button>
+      </form>
+    </div>
   </div>
 
-  <div class="center-container" onclick="toggleContent()">
+  <!-- <div class="center-container" onclick="toggleContent()">
     <h2 id="subjectTitle">Name of the subject</h2>
     <p id="subjectContent" class="content-hidden">This is the content inside the centered container.</p>
-  </div>
+  </div> -->
 
-  <div class="center-container-caption" onclick="editFlashcardTitle()">
+  <!-- <div class="center-container-caption" onclick="editFlashcardTitle()">
     <h2 id="flashcardTitle">Flashcard 1</h2>
-  </div>
+  </div> -->
 
-  <div class="next-button" onclick="nextButtonClick()">Next</div>
-  <div class="previous-button" onclick="previousButtonClick()">Previous</div>
+  <!-- <div class="next-button" onclick="nextButtonClick()">Next</div>
+  <div class="previous-button" onclick="previousButtonClick()">Previous</div> -->
 
   <script>
     var curtainOpen = false;
