@@ -1,35 +1,406 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Notes Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("/src/main/resources/templates/images/sky4.jpg");
+            background-size: 120%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        ul {
+            /*nav bar*/
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #A0B9FA;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        li {
+            /* 3functions position */
+            float: right;
+        }
+
+        li a {
+            /* 3functions */
+            display: block;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #A0B9FA;
+            text-decoration: underline;
+        }
+
+        .sidebar {
+            /*side bar*/
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 3;
+            top: 46px;
+            left: 0;
+            background-color: #f1f1f184;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #000;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            color: #A0B9FA;
+        }
+
+        .sidebar .paper-link {
+            cursor: pointer;
+            display: block;
+            padding: 20px 20px 20px 10px;
+            background-color: #ffffff00;
+            border: none;
+            margin-top: 50px;
+            position: fixed;
+            top: 65px;
+            left: 10px;
+            /* Updated property */
+            z-index: 2;
+            text-decoration: underline;
+            color: #000000;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar .paper-link:hover {
+            background-color: #ffffff00;
+            text-decoration: underline;
+        }
+
+        .curtain {
+            position: fixed;
+            top: 48px;
+            left: 0;
+
+            size: fixed;
+            width: 200px;
+            height: 0;
+
+            background-color: #CED9FF;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.5s;
+            z-index: 2;
+            padding: 17px;
+            box-sizing: border-box;
+        }
+
+        .pull-down-button {
+            cursor: pointer;
+            position: fixed;
+            color: #000000;
+            top: 65px;
+            left: 70px;
+            /* Updated property */
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 0px;
+            padding: 10 10px;
+        }
+
+        .pull-down-button:hover {
+            background-color: #A0B9FA;
+        }
+
+        .main {
+            margin-top: 100px;
+            margin-left: 220px;
+            padding: 60px 20px 20px;
+            padding-bottom: 200px;
+            background-color: #00000000;
+        }
+
+        .task-container {
+            /*TODO dropdown note*/
+            margin-top: 10px;
+            margin-bottom: 0px;
+            font-family: Tahoma;
+            color: #000000;
+        }
+
+        button {
+            /*add and delete button*/
+            background-color: #ffffff4d;
+            color: rgb(0, 0, 0);
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 6px;
+        }
+
+        button:hover {
+            background-color: #A0B9FA;
+        }
+
+        .folder-container {
+            margin-top: 10px;
+            size: fixed;
+            padding: 80px;
+            margin-right: 10px;
+            background-color: #CED9FF;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            width: 50px;
+            /* Set the desired width */
+            height: 30px;
+            /* Set the desired height */
+            text-align: center;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .folder-container:hover {
+            background-color: #A0B9FA;
+        }
+
+        .delete-button {
+            position: absolute;
+            bottom: 0;
+            right: 0px;
+            background-color: #ffffff66;
+            color: #000000;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #ff33339b;
+        }
+
+        .back-button {
+            background-color: #A0B9FA;
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 10%;
+            left: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #ffffff;
+        }
+
+        /* .flex-container {
+            display: flex;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 300px;
+            border-radius: 5px;
+        } */
+
+
+
+        .card-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 300px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h2>Added Notes</h2>
+    <ul>
+        <li><a th:href="@{flashcard}">FlashCard</a></li>
+        <li><a th:href="@{studyroom}">Study Room</a></li>
+        <li><a th:href="@{dashboard}">Dashboard</a></li>
+    </ul>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Text</th>
-            </tr>
-        </thead>
-        <tbody th:each="note : ${notes}">
-            <tr>
-                <td th:text="${note.name} ?: 'N/A'">Name</td>
-                <td th:text="${note.text} ?: 'N/A'">Text</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
+    <div class="sidebar">
+        <a class="paper-link" th:href="@{add-notes}">Create New Note</a>
+        <div class="curtain" id="toDoCurtain">
+            <br>
+            <button onclick="addTask()">Add</button>
+            <button onclick="deleteTask()">Delete</button>
+        </div>
+        <div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+    <div class="main" id="mainContent">
+        <form th:action="@{/search-notes}" method="get">
+            <label for="searchTerm">Search by Name:</label>
+            <input type="text" id="searchTerm" name="name" required />
+            <button type="submit">Search</button>
+        </form>
+
+
+        <h2>Added Notes</h2>
+
+        <!-- <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Text</th>
+                </tr>
+            </thead>
+            <tbody th:each="note : ${notes}">
+                <tr>
+                    <td th:text="${note.name} ?: 'N/A'">Name</td>
+                    <td th:text="${note.text} ?: 'N/A'">Text</td>
+                </tr>
+            </tbody>
+        </table> -->
+
+        <div class="card-container">
+            <div class="card" th:each="note : ${notes}">
+                <div class="card-header">
+                    <h2 th:text="${note.name} ?: 'N/A'">Name</h2>
+                </div>
+                <div class="card-body">
+                    <p th:text="${note.text} ?: 'N/A'">Text</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-    <h2>Create a Note</h2>
-    <a th:href="@{add-notes}">Add note</a>
-    <!-- <form th:action="@{/save-notes}" method="post" th:object="${note}">
+    <script>
+        var curtainOpen = false;
+
+        function toggleCurtain() {
+            var curtain = document.getElementById('toDoCurtain');
+            var curtainHeight = curtain.scrollHeight;
+
+            if (curtainOpen) {
+                curtain.style.height = '0';
+            } else {
+                curtain.style.height = curtainHeight + 'px';
+            }
+
+            curtainOpen = !curtainOpen;
+        }
+
+        function addTask() {
+            var taskName = prompt("Enter the task name:");
+            if (taskName) {
+                var newTaskContainer = document.createElement("div");
+                newTaskContainer.className = "task-container";
+                newTaskContainer.innerHTML = '<b><label><input type="checkbox" name="task" value="' + taskName + '"> ' + taskName + '</label></b>';
+                document.getElementById('toDoCurtain').appendChild(newTaskContainer);
+
+                // Close the curtain after adding a new task
+                curtainOpen = false;
+                toggleCurtain();
+            }
+        }
+
+        function deleteTask() {
+            var checkboxes = document.querySelectorAll('input[name="task"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.parentNode.parentNode.remove();
+            });
+        }
+
+        function createNewRoom() {
+            var folderTitle = prompt("Enter the folder title for the new flashcard:");
+            if (folderTitle) {
+                var newFolder = document.createElement("div");
+                newFolder.className = "folder-container";
+                newFolder.innerHTML = '<b><label>' + folderTitle + '</label></b>';
+                newFolder.innerHTML += '<button class="delete-button" onclick="deleteFolder(this)">Delete</button>';
+                document.getElementById('mainContent').appendChild(newFolder);
+            }
+        }
+
+        function deleteFolder(button) {
+            button.parentNode.remove();
+        }
+
+        function goBack() {
+            // Go back to the previous webpage
+            window.history.back();
+        }
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!-- <h2>Added Notes</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Text</th>
+        </tr>
+    </thead>
+    <tbody th:each="note : ${notes}">
+        <tr>
+            <td th:text="${note.name} ?: 'N/A'">Name</td>
+            <td th:text="${note.text} ?: 'N/A'">Text</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h2>Create a Note</h2>
+<a th:href="@{add-notes}">Add note</a> -->
+<!-- <form th:action="@{/save-notes}" method="post" th:object="${note}">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" th:field="*{name}" required />
 
@@ -42,10 +413,3 @@
 
         <button type="submit">Save Note</button>
     </form> -->
-
-
-
-
-</body>
-
-</html>
