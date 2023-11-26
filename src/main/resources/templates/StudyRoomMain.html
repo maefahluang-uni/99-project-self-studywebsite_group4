@@ -268,11 +268,21 @@
   <div class="card-container">
     <div class="card" th:each="studyroom : ${studyroom}">
       <div class="card-header">
-        <h2 th:text="${studyroom.name}">Name</h2>
+        <h2 th:text="${studyroom.name}  ?: 'N/A'">Name</h2>
       </div>
       <!-- <div class="card-body">
         <p th:text="${note.text} ?: 'N/A'">Text</p>
       </div> -->
+      <div class="card-container">
+        <div class="card" th:each="note : ${notes}">
+          <div class="card-header">
+            <h2 th:text="${note.name} ?: 'N/A'">Name</h2>
+          </div>
+          <div class="card-body">
+            <p th:text="${note.text} ?: 'N/A'">Text</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
