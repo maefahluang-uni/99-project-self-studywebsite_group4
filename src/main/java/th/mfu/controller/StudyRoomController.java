@@ -22,7 +22,7 @@ public class StudyRoomController {
     // Handler method for displaying the list of study rooms
     @GetMapping("/studyrooms")
     public String listStudyRoom(Model model) {
-        model.addAttribute("flashcards", studyroomRepo.findAll());
+        model.addAttribute("studyroom", studyroomRepo.findAll());
         return "StudyRoomMain";
     }
 
@@ -34,7 +34,7 @@ public class StudyRoomController {
     }
 
     // Handler method for saving a new study room
-    @PostMapping("/studyrooms")
+    @PostMapping("/save-studyrooms")
     public String saveStudyRoom(@ModelAttribute StudyRoom newstudyroom) {
         studyroomRepo.save(newstudyroom);
         return "redirect:/studyrooms";

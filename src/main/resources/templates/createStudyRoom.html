@@ -425,13 +425,22 @@
 
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
-        <input id="fileInput" type="text" placeholder="Untitled" onblur="saveSidebarInput()">
+        <!-- <input id="fileInput" type="text" placeholder="Untitled" onblur="saveSidebarInput()"> -->
         <a href="javascript:void(0);" onclick="openUploadModal()">Upload File</a>
         <a href="javascript:void(0);" onclick="openSongUploadModal()">Upload Song</a>
         <a href="javascript:void(0);" onclick="openTimerModal()">Set timer</a>
 
         <a href="javascript:void(0);" onclick="openNoteModal()">Take note</a>
-        <button class="create-button" onclick="saveData()">Create</button>
+        <!-- <button class="create-button" onclick="saveData()">Create</button> -->
+
+        <form th:action="@{/save-studyrooms}" method="post" th:object="${newstudyroom}">
+
+            <input type=" text" id="fileInput" placeholder="Untitled" th:field="*{name}" required>
+
+            <button class="create-button" type="submit">Create</button>
+        </form>
+
+        
         <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
