@@ -259,6 +259,20 @@
     <div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
   </div>
   <div class="main" id="mainContent">
+    <h2>Create Flash Card</h2>
+
+    <form action="/flashcards" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <label for="frontLabel">Front Label:</label>
+      <textarea id="frontLabel" name="frontLabel" rows="4" required></textarea>
+      <br>
+      <label for="backLabel">Back Label:</label>
+      <textarea id="backLabel" name="backLabel" rows="4" required></textarea>
+      <br>
+      <button type="submit">Save Flash Card</button>
+    </form>
   </div>
 
   <div class="center-container" onclick="toggleContent()">
@@ -272,21 +286,6 @@
 
   <div class="next-button" onclick="nextButtonClick()">Next</div>
   <div class="previous-button" onclick="previousButtonClick()">Previous</div>
-
-  <h2>Create Flash Card</h2>
-
-    <form action="/flashcards" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="frontLabel">Front Label:</label>
-        <textarea id="frontLabel" name="frontLabel" rows="4" required></textarea>
-        <br>
-        <label for="backLabel">Back Label:</label>
-        <textarea id="backLabel" name="backLabel" rows="4" required></textarea>
-        <br>
-        <button type="submit">Save Flash Card</button>
-    </form>
 
   <script>
     var curtainOpen = false;
