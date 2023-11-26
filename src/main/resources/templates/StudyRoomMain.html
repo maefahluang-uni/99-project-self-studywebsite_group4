@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyRoomMain Page</title>
-    <style>
- body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url("images/sky4.jpg");
-    background-size: 130%;
- 
-    background-position: center;
-    background-repeat: no-repeat;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyRoomMain Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("images/sky4.jpg");
+      background-size: 130%;
+
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
     ul {
       /*nav bar*/
       list-style-type: none;
@@ -170,8 +172,10 @@
       border-radius: 5px;
       display: inline-block;
       cursor: pointer;
-      width: 50px; /* Set the desired width */
-      height: 30px; /* Set the desired height */
+      width: 50px;
+      /* Set the desired width */
+      height: 30px;
+      /* Set the desired height */
       text-align: center;
       line-height: 1.5;
       position: relative;
@@ -184,7 +188,7 @@
     .delete-button {
       position: absolute;
       bottom: 0;
-      right: 0px;   
+      right: 0px;
       background-color: #ffffff66;
       color: #000000;
       padding: 5px 10px;
@@ -215,85 +219,85 @@
   </style>
 </head>
 
-<body>
-  <ul>
-    <li><a th:href="@{flashcard}">FlashCard</a></li>
-    <li><a th:href="@{studyroom}">Study Room</a></li>
-    <li><a th:href="@{dashboard}">Dashboard</a></li>
-  </ul>
+<ul>
+  <li><a th:href="@{notes}">Notes</a></li>
+  <li><a th:href="@{flashcard}">FlashCard</a></li>
+  <li><a th:href="@{studyroom}">Study Room</a></li>
+  <li><a th:href="@{dashboard}">Dashboard</a></li>
+</ul>
 
+<div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
+<div class="sidebar">
+  <a class="paper-link" href="/add-studyroom/">Create a new <br>Study Room</a>
+  <div class="curtain" id="toDoCurtain">
+    <br>
+    <button onclick="addTask()">Add</button>
+    <button onclick="deleteTask()">Delete</button>
+  </div>
   <div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
-  <div class="sidebar">
-    <a class ="paper-link" href="/add-studyroom/">Create a new <br>Study Room</a>
-    <div class="curtain" id="toDoCurtain">
-      <br>
-      <button onclick="addTask()">Add</button>
-      <button onclick="deleteTask()">Delete</button>
-    </div>
-    <div class="pull-down-button" onclick="toggleCurtain()">TODO</div>
-    <button class="back-button" onclick="goBack()">Back</button>
-  </div>
-  <div class="main" id="mainContent">
+  <button class="back-button" onclick="goBack()">Back</button>
+</div>
+<div class="main" id="mainContent">
 
-  </div>
+</div>
 
-  <script>
-    var curtainOpen = false;
+<script>
+  var curtainOpen = false;
 
-    function toggleCurtain() {
-      var curtain = document.getElementById('toDoCurtain');
-      var curtainHeight = curtain.scrollHeight;
+  function toggleCurtain() {
+    var curtain = document.getElementById('toDoCurtain');
+    var curtainHeight = curtain.scrollHeight;
 
-      if (curtainOpen) {
-        curtain.style.height = '0';
-      } else {
-        curtain.style.height = curtainHeight + 'px';
-      }
-
-      curtainOpen = !curtainOpen;
+    if (curtainOpen) {
+      curtain.style.height = '0';
+    } else {
+      curtain.style.height = curtainHeight + 'px';
     }
 
-    function addTask() {
-      var taskName = prompt("Enter the task name:");
-      if (taskName) {
-        var newTaskContainer = document.createElement("div");
-        newTaskContainer.className = "task-container";
-        newTaskContainer.innerHTML = '<b><label><input type="checkbox" name="task" value="' + taskName + '"> ' + taskName + '</label></b>';
-        document.getElementById('toDoCurtain').appendChild(newTaskContainer);
+    curtainOpen = !curtainOpen;
+  }
 
-        // Close the curtain after adding a new task
-        curtainOpen = false;
-        toggleCurtain();
-      }
-    }
+  function addTask() {
+    var taskName = prompt("Enter the task name:");
+    if (taskName) {
+      var newTaskContainer = document.createElement("div");
+      newTaskContainer.className = "task-container";
+      newTaskContainer.innerHTML = '<b><label><input type="checkbox" name="task" value="' + taskName + '"> ' + taskName + '</label></b>';
+      document.getElementById('toDoCurtain').appendChild(newTaskContainer);
 
-    function deleteTask() {
-      var checkboxes = document.querySelectorAll('input[name="task"]:checked');
-      checkboxes.forEach(function (checkbox) {
-        checkbox.parentNode.parentNode.remove();
-      });
+      // Close the curtain after adding a new task
+      curtainOpen = false;
+      toggleCurtain();
     }
+  }
 
-    function createNewRoom() {
-      var folderTitle = prompt("Enter the folder title for the new room:");
-      if (folderTitle) {
-        var newFolder = document.createElement("div");
-        newFolder.className = "folder-container";
-        newFolder.innerHTML = '<b><label>' + folderTitle + '</label></b>';
-        newFolder.innerHTML += '<button class="delete-button" onclick="deleteFolder(this)">Delete</button>';
-        document.getElementById('mainContent').appendChild(newFolder);
-      }
-    }
+  function deleteTask() {
+    var checkboxes = document.querySelectorAll('input[name="task"]:checked');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.parentNode.parentNode.remove();
+    });
+  }
 
-    function deleteFolder(button) {
-      button.parentNode.remove();
+  function createNewRoom() {
+    var folderTitle = prompt("Enter the folder title for the new room:");
+    if (folderTitle) {
+      var newFolder = document.createElement("div");
+      newFolder.className = "folder-container";
+      newFolder.innerHTML = '<b><label>' + folderTitle + '</label></b>';
+      newFolder.innerHTML += '<button class="delete-button" onclick="deleteFolder(this)">Delete</button>';
+      document.getElementById('mainContent').appendChild(newFolder);
     }
+  }
 
-    function goBack() {
-      // Go back to the previous webpage
-      window.history.back();
-    }
-  </script>
+  function deleteFolder(button) {
+    button.parentNode.remove();
+  }
+
+  function goBack() {
+    // Go back to the previous webpage
+    window.history.back();
+  }
+</script>
 
 </body>
 

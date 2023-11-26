@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 
   <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url("images/sky4.jpg");
-    background-size: cover; /* or background-size: 100%; */
-    background-position: center;
-    background-repeat: no-repeat;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("images/sky4.jpg");
+      background-size: cover;
+      /* or background-size: 100%; */
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
 
     ul {
@@ -113,7 +115,8 @@ body {
       position: fixed;
       color: #000000;
       top: 65px;
-      right: 70px; /* Updated property */
+      right: 70px;
+      /* Updated property */
       z-index: 2;
       display: flex;
       align-items: center;
@@ -136,6 +139,7 @@ body {
       border-radius: 10px;
       margin-right: 0px;
     }
+
     .checkbox-list {
       list-style: none;
       padding: 0;
@@ -147,7 +151,8 @@ body {
     }
 
     /* Add styles for buttons */
-    button { /*add and delete button*/
+    button {
+      /*add and delete button*/
       background-color: #ffffff4d;
       color: rgb(0, 0, 0);
       padding: 5px 10px;
@@ -165,13 +170,16 @@ body {
       margin-top: 15px;
       margin-bottom: 0px;
       font-size: 13px;
-      font-family: Tahoma; /* Replace 'Your Desired Font' with the actual font you want to use */
-      color: #000000; /* Replace #333 with the desired text color */
+      font-family: Tahoma;
+      /* Replace 'Your Desired Font' with the actual font you want to use */
+      color: #000000;
+      /* Replace #333 with the desired text color */
     }
 
     /* Add your custom styles for reminders here */
     .reminder {
-      background-color: #A0B9FA; /* Use your preferred color */
+      background-color: #A0B9FA;
+      /* Use your preferred color */
       color: #000;
       padding: 5px;
       border-radius: 5px;
@@ -182,6 +190,7 @@ body {
 <body>
 
   <ul>
+    <li><a th:href="@{notes}">Notes</a></li>
     <li><a th:href="@{flashcard}">FlashCard</a></li>
     <li><a th:href="@{studyroom}">Study Room</a></li>
     <li><a th:href="@{dashboard}">Dashboard</a></li>

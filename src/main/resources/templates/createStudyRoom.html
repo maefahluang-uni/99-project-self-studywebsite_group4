@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CreateStudyRoom Page</title>
-        <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url("images/sky4.jpg");
-    background-size: 160%;
- 
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateStudyRoom Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("images/sky4.jpg");
+            background-size: 160%;
+
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         ul {
             list-style-type: none;
             margin: 0;
@@ -21,7 +23,8 @@
             overflow: hidden;
             background-color: #A0B9FA;
             position: fixed;
-            width: 100%;/* Set the width to 100% to make it full-width */
+            width: 100%;
+            /* Set the width to 100% to make it full-width */
             top: 0;
             z-index: 1000;
         }
@@ -50,7 +53,7 @@
         li a:hover {
             text-decoration: underline;
         }
-       
+
         /* New styles for the sidebar */
         .sidebar {
             height: 100%;
@@ -65,7 +68,7 @@
             border-right: 2px solid #111;
             z-index: 1;
         }
-   
+
         .sidebar a {
             position: relative;
             padding: 8px 8px 8px 32px;
@@ -75,7 +78,7 @@
             display: block;
             line-height: 2.5;
             transition: 0.3s;
-       
+
         }
 
 
@@ -141,9 +144,9 @@
             padding: 8px;
             box-sizing: border-box;
             border-radius: 40px;
-           
+
         }
-       
+
         /* Video frame styles */
         .video-frame {
             position: fixed;
@@ -174,7 +177,7 @@
             padding-bottom: 100px;
             position: fixed;
             left: 50%;
-            top:50%;
+            top: 50%;
             transform: translate(-50%, -50%);
             background-color: #fff;
             padding: 20px;
@@ -184,7 +187,7 @@
             height: 800px;
             text-align: center;
         }
-       
+
         .main p {
             margin-bottom: 20px;
             color: #333;
@@ -194,15 +197,17 @@
 
 
         .pdf-viewer {
-            width: 100%; /* Make the PDF viewer fill its container */
-            height: 100%; /* Make the PDF viewer fill its container */
+            width: 100%;
+            /* Make the PDF viewer fill its container */
+            height: 100%;
+            /* Make the PDF viewer fill its container */
         }
 
 
 
 
-         /* Modal styles */
-         .modal {
+        /* Modal styles */
+        .modal {
             display: none;
             position: fixed;
             z-index: 1;
@@ -225,14 +230,14 @@
             border: 1px solid #888;
             width: 80%;
             border-radius: 40px;
-           
+
         }
 
 
 
 
-         /* Style for the file input in the modal */
-         .modal-content input[type="file"] {
+        /* Style for the file input in the modal */
+        .modal-content input[type="file"] {
             margin-top: 10px;
         }
 
@@ -268,7 +273,7 @@
 
         .modal-content button.discard {
             background-color: #FFFFFF;
-            color:black;
+            color: black;
         }
 
 
@@ -295,14 +300,18 @@
 
 
         /* Style for the timer modal */
-        #timerModal, #breakTimerModal, #noteModal {
+        #timerModal,
+        #breakTimerModal,
+        #noteModal {
             display: none;
         }
 
 
 
 
-        #timerModalContent, #breakTimerModalContent, #noteModalContent {
+        #timerModalContent,
+        #breakTimerModalContent,
+        #noteModalContent {
             background-color: #CED9FF;
             margin: 5% auto;
             padding: 20px;
@@ -314,7 +323,9 @@
 
 
 
-        #timerModalContent label, #breakTimerModalContent label, #noteModalContent label {
+        #timerModalContent label,
+        #breakTimerModalContent label,
+        #noteModalContent label {
             display: block;
             margin-bottom: 10px;
         }
@@ -322,13 +333,14 @@
 
 
 
-          /* Style for the note modal at the bottom */
+        /* Style for the note modal at the bottom */
         #noteModal {
             position: fixed;
             bottom: 0;
             left: 40px;
             width: 100%;
-            height: 180px;;
+            height: 180px;
+            ;
             background-color: #fefefe00;
             padding: 50px;
             z-index: 2;
@@ -342,7 +354,7 @@
             height: 50px;
             box-sizing: border-box;
             border-radius: 5px;
-         
+
         }
 
 
@@ -353,42 +365,43 @@
             padding: 8px;
             border-radius: 4px;
             cursor: pointer;
-             z-index: 3;
+            z-index: 3;
         }
+
         .create-button {
-      background-color: #A0B9FA;
-      color: rgb(0, 0, 0);
-      position: fixed;
-      bottom: 10%;
-      right: 100px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+            background-color: #A0B9FA;
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 10%;
+            right: 100px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
 
-    .create-button:hover {
-      background-color: #ffffff;
-    }
+        .create-button:hover {
+            background-color: #ffffff;
+        }
 
 
-    .back-button {
-      background-color: #A0B9FA;
-      color: rgb(0, 0, 0);
-      position: fixed;
-      bottom: 10%;
-      left: 20px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .back-button {
+            background-color: #A0B9FA;
+            color: rgb(0, 0, 0);
+            position: fixed;
+            bottom: 10%;
+            left: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
 
-    .back-button:hover {
-      background-color: #ffffff;
-    }
+        .back-button:hover {
+            background-color: #ffffff;
+        }
     </style>
 </head>
 
@@ -401,10 +414,10 @@
 
 
     <ul>
-        <li><a class="active" href="#flash">Flashcard</a></li>
-        <li><a href="#studyroom">Studyroom</a></li>
-        <li><a href="#dashboard">Dashboard</a></li>
-       
+        <li><a th:href="@{notes}">Notes</a></li>
+        <li><a th:href="@{flashcard}">FlashCard</a></li>
+        <li><a th:href="@{studyroom}">Study Room</a></li>
+        <li><a th:href="@{dashboard}">Dashboard</a></li>
     </ul>
 
 
@@ -416,18 +429,18 @@
         <a href="javascript:void(0);" onclick="openUploadModal()">Upload File</a>
         <a href="javascript:void(0);" onclick="openSongUploadModal()">Upload Song</a>
         <a href="javascript:void(0);" onclick="openTimerModal()">Set timer</a>
-       
+
         <a href="javascript:void(0);" onclick="openNoteModal()">Take note</a>
         <button class="create-button" onclick="saveData()">Create</button>
-    <button class="back-button" onclick="goBack()">Back</button>
+        <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
 
-   
+
     <div id="timerCurtain">
-       
-         <p id="timerDisplay"></p>
-     
+
+        <p id="timerDisplay"></p>
+
     </div>
     <div class="pull-down-button" onclick="toggleTimerCurtain()">Timer</div>
 
@@ -444,9 +457,9 @@
         <input id="centerInputBox" type="file" style="display: none;">
         <!-- Add the timerDisplay element for countdown -->
         <p id="timerDisplay"></p>
-       
+
     </div>
-   
+
     <!-- Video frame -->
     <div class="video-frame">
         <iframe id="videoFrame" width="300" height="200" frameborder="0" allowfullscreen></iframe>
@@ -455,25 +468,25 @@
 
 
 
-     <!-- Modal -->
-     <div id="uploadModal" class="modal">
+    <!-- Modal -->
+    <div id="uploadModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeUploadModal()">&times;</span>
             <p>Upload file</p>
-             <!-- File input in the modal -->
-             <input type="file" id="fileInputInModal">
-              <!-- Save and Discard buttons -->
+            <!-- File input in the modal -->
+            <input type="file" id="fileInputInModal">
+            <!-- Save and Discard buttons -->
             <button class="save" onclick="saveUploadedFile()">Save</button>
             <button class="discard" onclick="closeUploadModal()">Cancel</button>
         </div>
-        </div>
+    </div>
     </div>
 
 
 
 
-   <!-- Timer Modal -->
-     <div id="timerModal" class="modal">
+    <!-- Timer Modal -->
+    <div id="timerModal" class="modal">
         <div id="timerModalContent" class="modal-content">
             <span class="close" onclick="closeTimerModal()">&times;</span>
             <label for="timerInput">Set timer (in minutes):</label>
@@ -486,20 +499,20 @@
 
 
 
-<!-- Song Upload Modal -->
-<div id="songUploadModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeSongUploadModal()">&times;</span>
-        <p>Upload Song</p>
-        <input type="file" id="songFileInput" accept=".mp3, .mp4">
-        <label for="youtubeLinkInput">YouTube Link:</label>
-        <input type="text" id="youtubeLinkInput" placeholder="Paste YouTube link">
-        <button class="save" onclick="saveUploadedSong()">Save</button>
-        <button class="discard" onclick="closeSongUploadModal()">Cancel</button>
+    <!-- Song Upload Modal -->
+    <div id="songUploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSongUploadModal()">&times;</span>
+            <p>Upload Song</p>
+            <input type="file" id="songFileInput" accept=".mp3, .mp4">
+            <label for="youtubeLinkInput">YouTube Link:</label>
+            <input type="text" id="youtubeLinkInput" placeholder="Paste YouTube link">
+            <button class="save" onclick="saveUploadedSong()">Save</button>
+            <button class="discard" onclick="closeSongUploadModal()">Cancel</button>
+        </div>
     </div>
-</div>
-     <!-- Note Modal at the bottom -->
-     <div id="noteModal">
+    <!-- Note Modal at the bottom -->
+    <div id="noteModal">
         <div id="noteModalContent">
             <label for="noteInput">Take a note:</label>
             <textarea id="noteInput"></textarea>
@@ -511,112 +524,112 @@
 
 
 
-<script>
-  var timerCurtainOpen = false;
-var intervals = [];
+    <script>
+        var timerCurtainOpen = false;
+        var intervals = [];
 
-function startTimer(duration, updateCallback) {
-    var timerDisplay = document.getElementById('timerDisplay');
-    var seconds = duration * 60;
+        function startTimer(duration, updateCallback) {
+            var timerDisplay = document.getElementById('timerDisplay');
+            var seconds = duration * 60;
 
-    var timerInterval = setInterval(function () {
-        seconds--;
+            var timerInterval = setInterval(function () {
+                seconds--;
 
-        if (seconds < 0) {
-            clearInterval(timerInterval);
-            timerDisplay.innerText = 'Time\'s up!';
-        } else {
+                if (seconds < 0) {
+                    clearInterval(timerInterval);
+                    timerDisplay.innerText = 'Time\'s up!';
+                } else {
+                    var minutes = Math.floor(seconds / 60);
+                    var remainingSeconds = seconds % 60;
+                    var timeString = minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
+
+                    timerDisplay.innerText = 'Timer: ' + timeString;
+
+                    // Execute the callback to update the countdown display
+                    if (updateCallback) {
+                        updateCallback(seconds);
+                    }
+                }
+            }, 1000);
+
+            return timerInterval;
+        }
+
+        function updateTimerDisplay() {
+            var timerCurtain = document.getElementById('timerCurtain');
+            var timerValue = document.getElementById('timerInput').value;
+
+            if (timerValue > 0) {
+                // Update the timer display in the curtain
+                timerCurtain.innerText = 'Timer: ' + timerValue + ' mins';
+            }
+        }
+
+        function updateCountdownDisplay(seconds) {
+            var timerCurtain = document.getElementById('timerCurtain');
             var minutes = Math.floor(seconds / 60);
             var remainingSeconds = seconds % 60;
             var timeString = minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
 
-            timerDisplay.innerText = 'Timer: ' + timeString;
+            // Update the countdown display in the curtain
+            timerCurtain.innerText = 'Time remain: ' + timeString;
+        }
 
-            // Execute the callback to update the countdown display
-            if (updateCallback) {
-                updateCallback(seconds);
+        function toggleTimerCurtain() {
+            var timerCurtain = document.getElementById('timerCurtain');
+            var timerCurtainHeight = timerCurtain.scrollHeight;
+
+            if (timerCurtainOpen) {
+                timerCurtain.style.height = '0';
+                timerCurtain.style.opacity = '0';
+            } else {
+                var timerValue = document.getElementById('timerInput').value;
+                timerCurtain.style.height = timerCurtainHeight + 'px';
+                timerCurtain.style.opacity = '1';
+            }
+
+            timerCurtainOpen = !timerCurtainOpen;
+        }
+
+        function saveTimer() {
+            updateTimerDisplay();
+            var timerValue = document.getElementById('timerInput').value;
+
+            if (timerValue > 0) {
+                var timerCurtain = document.getElementById('timerCurtain');
+
+                // Update the timer display in the curtain
+                timerCurtain.innerText = 'Timer: ' + timerValue + ' mins';
+
+                // Clear any existing intervals
+                clearIntervals();
+
+                // Start the countdown and save the interval to clear it later
+                var timerInterval = startTimer(timerValue, updateCountdownDisplay);
+                intervals.push(timerInterval);
+                closeTimerModal();
+            } else {
+                alert('Please enter a valid timer value.');
             }
         }
-    }, 1000);
 
-    return timerInterval;
-}
+        function startCountdown() {
+            var timerValue = document.getElementById('timerInput').value;
+            clearIntervals();
 
-function updateTimerDisplay() {
-    var timerCurtain = document.getElementById('timerCurtain');
-    var timerValue = document.getElementById('timerInput').value;
+            if (timerValue > 0) {
+                // Start the countdown with the updateCountdownDisplay callback
+                var timerInterval = startTimer(timerValue, updateCountdownDisplay);
 
-    if (timerValue > 0) {
-        // Update the timer display in the curtain
-        timerCurtain.innerText = 'Timer: ' + timerValue + ' mins';
-    }
-}
+                // Save the interval to clear it later
+                intervals.push(timerInterval);
+            }
+        }
 
-function updateCountdownDisplay(seconds) {
-    var timerCurtain = document.getElementById('timerCurtain');
-    var minutes = Math.floor(seconds / 60);
-    var remainingSeconds = seconds % 60;
-    var timeString = minutes + ':' + (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
-
-    // Update the countdown display in the curtain
-    timerCurtain.innerText = 'Time remain: ' + timeString;
-}
-
-function toggleTimerCurtain() {
-    var timerCurtain = document.getElementById('timerCurtain');
-    var timerCurtainHeight = timerCurtain.scrollHeight;
-
-    if (timerCurtainOpen) {
-        timerCurtain.style.height = '0';
-        timerCurtain.style.opacity = '0';
-    } else {
-        var timerValue = document.getElementById('timerInput').value;    
-        timerCurtain.style.height = timerCurtainHeight + 'px';
-        timerCurtain.style.opacity = '1';
-    }
-
-    timerCurtainOpen = !timerCurtainOpen;
-}
-
-function saveTimer() {
-    updateTimerDisplay();
-    var timerValue = document.getElementById('timerInput').value;
-
-    if (timerValue > 0) {
-        var timerCurtain = document.getElementById('timerCurtain');
-
-        // Update the timer display in the curtain
-        timerCurtain.innerText = 'Timer: ' + timerValue + ' mins';
-
-        // Clear any existing intervals
-        clearIntervals();
-
-        // Start the countdown and save the interval to clear it later
-        var timerInterval = startTimer(timerValue, updateCountdownDisplay);
-        intervals.push(timerInterval);
-        closeTimerModal();
-    } else {
-        alert('Please enter a valid timer value.');
-    }
-}
-
-function startCountdown() {
-    var timerValue = document.getElementById('timerInput').value;
-    clearIntervals();
-
-    if (timerValue > 0) {
-        // Start the countdown with the updateCountdownDisplay callback
-        var timerInterval = startTimer(timerValue, updateCountdownDisplay);
-
-        // Save the interval to clear it later
-        intervals.push(timerInterval);
-    }
-}
-
-function clearIntervals() {
-    intervals.forEach(clearInterval);
-    intervals = [];
-}
+        function clearIntervals() {
+            intervals.forEach(clearInterval);
+            intervals = [];
+        }
 
 
         function openTimerModal() {
@@ -629,7 +642,7 @@ function clearIntervals() {
         }
 
 
-       
+
         function openUploadModal() {
             // Display the modal when the "Upload" button is clicked
             document.getElementById('uploadModal').style.display = 'block';
@@ -642,25 +655,25 @@ function clearIntervals() {
 
 
 
-     
+
         function saveUploadedFile() {
-    // Handle the action when the user clicks the "Save" button
-    var fileInput = document.getElementById('fileInputInModal');
-    var file = fileInput.files[0];
+            // Handle the action when the user clicks the "Save" button
+            var fileInput = document.getElementById('fileInputInModal');
+            var file = fileInput.files[0];
 
 
 
 
-    // Check if a file is selected
-    if (file) {
-        var mainContainer = document.querySelector('.main');
-       
-        // Check if the uploaded file is a PDF
-        if (file.type === 'application/pdf') {
-            // Create an iframe to display the PDF
-            var pdfViewer = document.createElement('iframe');
-            pdfViewer.src = URL.createObjectURL(file);
-            pdfViewer.className = 'pdf-viewer';
+            // Check if a file is selected
+            if (file) {
+                var mainContainer = document.querySelector('.main');
+
+                // Check if the uploaded file is a PDF
+                if (file.type === 'application/pdf') {
+                    // Create an iframe to display the PDF
+                    var pdfViewer = document.createElement('iframe');
+                    pdfViewer.src = URL.createObjectURL(file);
+                    pdfViewer.className = 'pdf-viewer';
 
 
 
@@ -669,25 +682,25 @@ function clearIntervals() {
 
 
 
-            // Append the PDF viewer to the main container
-            mainContainer.innerHTML = ''; // Clear existing content
-            mainContainer.appendChild(pdfViewer);
-        } else {
-            // Display a message for unsupported file types
-            mainContainer.innerHTML = 'Unsupported file type. Please upload a PDF.';
+                    // Append the PDF viewer to the main container
+                    mainContainer.innerHTML = ''; // Clear existing content
+                    mainContainer.appendChild(pdfViewer);
+                } else {
+                    // Display a message for unsupported file types
+                    mainContainer.innerHTML = 'Unsupported file type. Please upload a PDF.';
+                }
+
+
+
+
+
+                // Close the modal after handling the file
+                closeUploadModal();
+            } else {
+                // Display a message if no file is selected
+                alert('Please select a file.');
+            }
         }
-
-
-
-
-       
-        // Close the modal after handling the file
-        closeUploadModal();
-    } else {
-        // Display a message if no file is selected
-        alert('Please select a file.');
-    }
-}
 
 
 
@@ -697,9 +710,9 @@ function clearIntervals() {
 
 
         // Function to open song upload modal
-function openSongUploadModal() {
-    document.getElementById('songUploadModal').style.display = 'block';
-}
+        function openSongUploadModal() {
+            document.getElementById('songUploadModal').style.display = 'block';
+        }
 
 
 
@@ -708,79 +721,79 @@ function openSongUploadModal() {
 
 
 
-// Function to close song upload modal
-function closeSongUploadModal() {
-    document.getElementById('songUploadModal').style.display = 'none';
-}
+        // Function to close song upload modal
+        function closeSongUploadModal() {
+            document.getElementById('songUploadModal').style.display = 'none';
+        }
 
 
 
 
 
 
-// Function to save uploaded song
-function saveUploadedSong() {
-    // Get the values of the local song file and YouTube link
-    var songFile = document.getElementById('songFileInput').files[0];
-    var youtubeLink = document.getElementById('youtubeLinkInput').value;
+        // Function to save uploaded song
+        function saveUploadedSong() {
+            // Get the values of the local song file and YouTube link
+            var songFile = document.getElementById('songFileInput').files[0];
+            var youtubeLink = document.getElementById('youtubeLinkInput').value;
 
 
-    // Check if a local song file is selected
-    if (songFile) {
-        // Handle the local song file as before
-        handleLocalSongFile(songFile);
-    } else if (youtubeLink) {
-        // Handle the YouTube link
-        playVideo(youtubeLink);
-        closeSongUploadModal();
-    } else {
-        // Display a message if neither a file nor a link is provided
-        alert('Please select a local song file or provide a YouTube link.');
-    }
-}
+            // Check if a local song file is selected
+            if (songFile) {
+                // Handle the local song file as before
+                handleLocalSongFile(songFile);
+            } else if (youtubeLink) {
+                // Handle the YouTube link
+                playVideo(youtubeLink);
+                closeSongUploadModal();
+            } else {
+                // Display a message if neither a file nor a link is provided
+                alert('Please select a local song file or provide a YouTube link.');
+            }
+        }
 
 
-// Declare and initialize youtubeLink
-var youtubeLink = 'https://www.youtube.com/watch?v=mPZkdNFkNps&si=bji6Y5hpwAHkkJ79';
+        // Declare and initialize youtubeLink
+        var youtubeLink = 'https://www.youtube.com/watch?v=mPZkdNFkNps&si=bji6Y5hpwAHkkJ79';
 
 
-// Set the source of the video frame to the YouTube link
-var videoFrame = document.getElementById('videoFrame');
-videoFrame.src = youtubeLink;
-
-
-// Show the video frame
-videoFrame.style.display = 'block';
-
-
-// Function to handle local song file
-function handleLocalSongFile(songFile) {
-    var fileExtension = songFile.name.split('.').pop().toLowerCase();
-
-
-    if (fileExtension === 'mp3' || fileExtension === 'mp4') {
-        var audioPlayer = document.getElementById('audioPlayer');
-        audioPlayer.src = URL.createObjectURL(songFile);
-        audioPlayer.play();
-        audioPlayer.style.display = 'block';
-        closeSongUploadModal();
-    } else {
-        alert('Unsupported file type. Please select an MP3 or MP4 file.');
-    }
-}
-
-
-// Function to play a YouTube video
-function playVideo(videoLink) {
-    if (videoLink.includes('youtube.com')) {
-        var videoID = videoLink.split('v=')[1];
+        // Set the source of the video frame to the YouTube link
         var videoFrame = document.getElementById('videoFrame');
-        videoFrame.src = 'https://www.youtube.com/embed/' + videoID;
+        videoFrame.src = youtubeLink;
+
+
+        // Show the video frame
         videoFrame.style.display = 'block';
-    } else {
-        alert('Invalid YouTube link. Please provide a valid YouTube video link.');
-    }
-}
+
+
+        // Function to handle local song file
+        function handleLocalSongFile(songFile) {
+            var fileExtension = songFile.name.split('.').pop().toLowerCase();
+
+
+            if (fileExtension === 'mp3' || fileExtension === 'mp4') {
+                var audioPlayer = document.getElementById('audioPlayer');
+                audioPlayer.src = URL.createObjectURL(songFile);
+                audioPlayer.play();
+                audioPlayer.style.display = 'block';
+                closeSongUploadModal();
+            } else {
+                alert('Unsupported file type. Please select an MP3 or MP4 file.');
+            }
+        }
+
+
+        // Function to play a YouTube video
+        function playVideo(videoLink) {
+            if (videoLink.includes('youtube.com')) {
+                var videoID = videoLink.split('v=')[1];
+                var videoFrame = document.getElementById('videoFrame');
+                videoFrame.src = 'https://www.youtube.com/embed/' + videoID;
+                videoFrame.style.display = 'block';
+            } else {
+                alert('Invalid YouTube link. Please provide a valid YouTube video link.');
+            }
+        }
 
 
 
@@ -799,7 +812,7 @@ function playVideo(videoLink) {
             // Handle the action when the user clicks the "Save" button in the note modal
             var noteValue = document.getElementById('noteInput').value;
             alert('Note saved: ' + noteValue); // You can replace this with your own logic
-           
+
             closeNoteModal(); // Close the note modal after saving
         }
 
@@ -817,40 +830,29 @@ function playVideo(videoLink) {
 
 
         function saveSidebarInput() {
-    var titleInput = document.getElementById('fileInput').value;
+            var titleInput = document.getElementById('fileInput').value;
 
 
 
 
-    // Add logic to save the input, for example, update a variable or perform an action
-    alert('Saved: ' + titleInput);
-    document.getElementById('fileInput').value = titleInput;
-}
-function saveData() {
-      // Implement your data saving logic here
-      alert('Data saved!');
-    }
+            // Add logic to save the input, for example, update a variable or perform an action
+            alert('Saved: ' + titleInput);
+            document.getElementById('fileInput').value = titleInput;
+        }
+        function saveData() {
+            // Implement your data saving logic here
+            alert('Data saved!');
+        }
 
 
-    function goBack() {
-      // Go back to the previous webpage
-      window.history.back();
-    }
+        function goBack() {
+            // Go back to the previous webpage
+            window.history.back();
+        }
 
 
     </script>
-   
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
