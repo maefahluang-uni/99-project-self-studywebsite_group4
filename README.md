@@ -6,6 +6,9 @@ Project : Your Study Buddy
 
 List your group's member's below with ID and name.
 
+web link
+https://lab-ysb-ulcoq3m6dq-uc.a.run.app/home
+
 |Name | student ID | Github ID| 
 |----------------| |----------------||----------------|
 | 1. Nang Ying Lao Hsaing | 6531503162 |#122967319 |
